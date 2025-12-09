@@ -1,0 +1,11 @@
+torch==2.5.1+cu121
+torchvision==0.20.1+cu121
+torchaudio==2.5.1+cu121
+diffusers==0.31.0
+transformers==4.37.2
+peft==0.11.1
+image-reward==1.5
+safetensors==0.6.2
+accelerate==0.33.0
+pillow==11.3.0
+tqdm==4.67.1
