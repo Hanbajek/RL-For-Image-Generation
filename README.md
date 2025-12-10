@@ -1,6 +1,6 @@
 # BK-SDM LoRA + RL Training & Image Generation
 
-Este repositorio contiene un conjunto de herramientas para entrenar adaptadores **LoRA** sobre el modelo de difusión BK-SDM utilizando una mezcla de **entrenamiento supervisado (MSE)** y **aprendizaje por refuerzo con tres evaluadores: **CLIPScore**, **ImageReward**.  
+Este repositorio contiene un conjunto de herramientas para entrenar adaptadores **LoRA** sobre el modelo de difusión BK-SDM utilizando una mezcla de **entrenamiento supervisado (MSE)** y **aprendizaje por refuerzo con dos evaluadores: **CLIPScore**, **ImageReward**.  
 También incluye scripts para **generar imágenes** usando los LoRA entrenados.
 
 ---
@@ -11,7 +11,7 @@ También incluye scripts para **generar imágenes** usando los LoRA entrenados.
 - Entrenamiento de LoRA con:
   - MSE (predicción de ruido)
   - RL con ventaja normalizada
-  - Mezcla de recompensas (CLIP + ImageReward + Qwen-VL)
+  - Mezcla de recompensas (CLIP + ImageReward)
 - Generación de imágenes usando cualquier LoRA entrenado.
 - Compatible con GPU (CUDA) y CPU para preprocesamiento.
 
@@ -68,13 +68,13 @@ pip install torch torchvision diffusers transformers accelerate peft image-rewar
 ### 1) Generar embeddings:
 
 ```bash
-python src/rl/embed_prompts_local.py   --model_dir "./bk2m"   --prompts_file "artifacts/topset/prompts_modificado.txt"   --out "artifacts/topset/embeds3.pt"
+python src/rl/embed_prompts_local.py   --model_dir "./bk2m"   --prompts_file "artifacts/topset/prompts.txt"   --out "artifacts/topset/embeds3.pt"
 ```
 
 ### 2) Entrenar LoRA con RL:
 
 ```bash
-python src/rl/train_lora_stage1_reinforce_3eval.py   --topset "artifacts/topset"   --embeds "artifacts/topset/embeds3.pt"   --out_dir "artifacts/samples_lora_rewardMix"
+python src/rl/train RL BASELINE.py   --topset "artifacts/topset"   --embeds "artifacts/topset/embeds3.pt"   --out_dir "artifacts/samples_lora_rewardMix"
 ```
 
 ### 3) Generar imágenes con LoRA:
