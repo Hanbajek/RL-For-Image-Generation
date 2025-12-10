@@ -1,6 +1,6 @@
 # BK-SDM LoRA + RL Training & Image Generation
 
-Este repositorio contiene un conjunto de herramientas para entrenar adaptadores **LoRA** sobre el modelo de difusión BK-SDM utilizando una mezcla de **entrenamiento supervisado (MSE)** y **aprendizaje por refuerzo (REINFORCE)** con tres evaluadores: **CLIPScore**, **ImageReward** y **Qwen-VL**.  
+Este repositorio contiene un conjunto de herramientas para entrenar adaptadores **LoRA** sobre el modelo de difusión BK-SDM utilizando una mezcla de **entrenamiento supervisado (MSE)** y **aprendizaje por refuerzo con tres evaluadores: **CLIPScore**, **ImageReward**.  
 También incluye scripts para **generar imágenes** usando los LoRA entrenados.
 
 ---
